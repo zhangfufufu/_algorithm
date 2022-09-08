@@ -7,7 +7,7 @@
 // 定义链表结构
 typedef struct link_list
 {
-    int               data;  // 数据域
+    int data;                // 数据域
     struct link_list *next;  // 指针域 指向下一个节点
 
 } Node;
@@ -42,8 +42,8 @@ void push_front_node(Node *head, int num)
         head->next = newNode;
     } else {
         // p指针保存头结点指向的第一个节点
-        Node *tmp     = head->next;
-        head->next    = newNode;
+        Node *tmp = head->next;
+        head->next = newNode;
         newNode->next = tmp;
     }
 }
@@ -60,7 +60,7 @@ void push_back_node(Node *head, int num)
 
     // cur next指向新节点 新节点next置空
     Node *newNode = _creat_node(num);
-    cur->next     = newNode;
+    cur->next = newNode;
 }
 
 // 头删节点
@@ -72,7 +72,7 @@ void front_pop_node(Node *head)
         return;
     }
 
-    Node *tmp  = head->next;
+    Node *tmp = head->next;
     head->next = head->next->next;
     free(tmp);  // 一定要最后再释放
 }
@@ -122,7 +122,7 @@ void traverse_node(Node *Head)
 // 清空单链表 不销毁头节点
 void clear_node(Node *Head)
 {
-    Node *cur  = Head;
+    Node *cur = Head;
     Node *next = NULL;
 
     while (cur != NULL) {
@@ -165,8 +165,8 @@ int get_size(Node *head)
         return 0;
     }
 
-    int   count = 0;
-    Node *cur   = head->next;
+    int count = 0;
+    Node *cur = head->next;
     while (cur) {
         ++count;
         cur = cur->next;

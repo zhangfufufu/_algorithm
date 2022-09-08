@@ -62,13 +62,13 @@ string minWindow(string s, string t)
         need[c]++;
     }
 
-    int left  = 0;
+    int left = 0;
     int right = 0;
     int valid = 0;  // 计数器 有效位数
 
     // 定义最小覆盖子串的索引和长度
     int start = 0;
-    int len   = INT_MAX;
+    int len = INT_MAX;
     while (right < s.size()) {
         // 开始滑动
         // 取出一个字符
@@ -88,7 +88,7 @@ string minWindow(string s, string t)
             // 更新最小覆盖子串
             if (right - left < len) {
                 start = left;
-                len   = right - left;
+                len = right - left;
             }
 
             // d是将要移出的字符

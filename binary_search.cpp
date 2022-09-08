@@ -10,7 +10,7 @@ int binary_search(vector<int> &arr, int target)
         return -1;
     }
     // 二分查找 有序数组
-    int left  = 0;
+    int left = 0;
     int right = arr.size() - 1;
 
     // 注意点:一定要left <= right
@@ -38,7 +38,7 @@ int binary_search_left(vector<int> &arr, int target)
     if (arr.empty()) {
         return -1;
     }
-    int left  = 0;
+    int left = 0;
     int right = arr.size() - 1;
 
     while (left <= right) {
@@ -70,7 +70,7 @@ int binary_search_right(vector<int> &arr, int target)
         return -1;
     }
 
-    int left  = 0;
+    int left = 0;
     int right = arr.size() - 1;
     while (left <= right) {
         int mid = left + (right - left) / 2;

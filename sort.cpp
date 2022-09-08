@@ -39,7 +39,7 @@ int _partition_move(vector<int> &arr, int start_index, int end_index)
     int index = start_index;
 
     // 定义左右指针
-    int left  = start_index;
+    int left = start_index;
     int right = end_index;
 
     // 大循环在左右指针重合时退出
@@ -63,7 +63,7 @@ int _partition_move(vector<int> &arr, int start_index, int end_index)
         while (right >= left) {
             if (arr[left] > pivot) {
                 arr[right] = arr[left];
-                index      = left;
+                index = left;
                 right--;
                 break;
             }
@@ -84,7 +84,7 @@ int _partition_swap(vector<int> &arr, int start_index, int end_index)
     // 基准数
     int pivot = arr[start_index];
 
-    int left  = start_index;
+    int left = start_index;
     int right = end_index;
 
     // notice! 这里一定不能写 >=
