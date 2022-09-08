@@ -246,8 +246,7 @@ void insert_sort_swap(vector<int> &arr)
             if (arr[j] > arr[j + 1]) {
                 // 这里直接进行两两交换
                 swap(arr[j], arr[j + 1]);
-            }
-            else {
+            } else {
                 // 因为前面是有序数组 比较是从后往前比较 只要最后比较的元素就绪
                 // 就结束当前循环
                 break;
@@ -343,8 +342,7 @@ void _merge(vector<int> &arr, int start_index, int mid_index, int end_index)
     while (i <= mid_index && j <= end_index) {
         if (arr[i] <= arr[j]) {
             tmp[p++] = arr[i++];
-        }
-        else {
+        } else {
             tmp[p++] = arr[j++];
         }
     }

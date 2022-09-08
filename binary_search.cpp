@@ -20,12 +20,10 @@ int binary_search(vector<int> &arr, int target)
 
         if (arr[mid] == target) {
             return mid;
-        }
-        else if (target < arr[mid]) {
+        } else if (target < arr[mid]) {
             // 缩减右边界
             right = mid - 1;
-        }
-        else if (target > arr[mid]) {
+        } else if (target > arr[mid]) {
             // 缩减左边界
             left = mid + 1;
         }
@@ -47,11 +45,9 @@ int binary_search_left(vector<int> &arr, int target)
         int mid = left + (right - left) / 2;
         if (target == arr[mid]) {
             right = mid - 1;
-        }
-        else if (target < arr[mid]) {
+        } else if (target < arr[mid]) {
             right = mid - 1;
-        }
-        else if (target > arr[mid]) {
+        } else if (target > arr[mid]) {
             left = mid + 1;
         }
     }
@@ -81,11 +77,9 @@ int binary_search_right(vector<int> &arr, int target)
         if (arr[mid] == target) {
             // 因为要找右边界 所以需要收缩左边界
             left = mid + 1;
-        }
-        else if (arr[mid] < target) {
+        } else if (arr[mid] < target) {
             left = mid + 1;
-        }
-        else if (arr[mid] > target) {
+        } else if (arr[mid] > target) {
             right = mid - 1;
         }
     }
