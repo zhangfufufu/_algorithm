@@ -7,6 +7,7 @@
 using namespace std;
 
 namespace Tool {
+
 void for_each(vector<int> &arr)
 {
     for (const int &val : arr) {
@@ -26,6 +27,13 @@ void random(vector<int> &arr, int n = 10)
     for (int i = 0; i < n; i++) {
         arr.push_back(rand() % 50);
     }
+}
+
+//获取从[start-end)之间的随机index
+int getrandom(int start, int end)
+{
+    srand((unsigned int)time(NULL));
+    return (rand() % (end - start)) + start;
 }
 
 }  // namespace Tool
@@ -320,6 +328,9 @@ void quick_sort_swap(vector<int> &arr, int start_index, int end_index)
         return;
     }
 
+    // 这里随机选取一个位置 可以提高性能 不再固定位置
+    int rand_index = Tool::getrandom(start_index, end_index);
+    swap(arr[rand_index], arr[start_index]);
     // 定义基准数下标
     int pivot_index = _partition_swap(arr, start_index, end_index);
 
@@ -387,10 +398,10 @@ int main(int argc, char const *argv[])
 
     // test
 
-    // quick_sort_swap(arr, 0, arr.size() - 1);
+    quick_sort_swap(arr, 0, arr.size() - 1);
     // select_sort_plus(arr);
     // bubble_sort_plus(arr);
-    shell_sort(arr);
+    // shell_sort(arr);
 
     // merge_sort(arr, 0, arr.size() - 1);
     Tool::for_each(arr);
