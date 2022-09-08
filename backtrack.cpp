@@ -8,18 +8,15 @@ using namespace std;
 void backtrack(vector<vector<int>> &res, vector<int> &arr, vector<int> &track)
 {
     // 递归的出口
-    if (track.size() == arr.size())
-    {
+    if (track.size() == arr.size()) {
         res.push_back(vector<int>(track));
         return;
     }
 
     // for 选择 in 选择列表
-    for (int i = 0; i < arr.size(); i++)
-    {
+    for (int i = 0; i < arr.size(); i++) {
         // 排除重复选项
-        if (count(track.begin(), track.end(), arr[i]))
-        {
+        if (count(track.begin(), track.end(), arr[i])) {
             continue;
         }
 
@@ -43,10 +40,8 @@ void permute(vector<int> &arr)
     backtrack(res, arr, track);
 
     // 输出
-    for (auto &vals : res)
-    {
-        for (auto &val : vals)
-        {
+    for (auto &vals : res) {
+        for (auto &val : vals) {
             cout << val << ' ';
         }
         cout << endl;
@@ -56,7 +51,6 @@ void permute(vector<int> &arr)
 
 int main(int argc, char const *argv[])
 {
-
     vector<int> arr{1, 2, 3, 4};
     permute(arr);
 
