@@ -229,39 +229,39 @@ void destroy(Node *root)
     free(root);
 }
 
-// int main(int argc, char const *argv[])
-// {
-//     Node *root;
-//     root = nullptr;
-//     insert(&root, 5);
-//     insert(&root, 2);
-//     insert(&root, 3);
-//     insert(&root, 8);
-//     insert(&root, 7);
-//     insert(&root, 5);
-//     insert(&root, 2);
+int main(int argc, char const *argv[])
+{
+    Node *root;
+    root = nullptr;
+    insert(&root, 5);
+    insert(&root, 2);
+    insert(&root, 3);
+    insert(&root, 8);
+    insert(&root, 7);
+    insert(&root, 5);
+    insert(&root, 2);
 
-//     // 遍历
-//     printf("--------------pre_order--------------\n");
-//     pre_order(root);
-//     printf("\n--------------pre_order_loop--------------\n");
-//     pre_order_loop(root);
+    // 遍历
+    printf("--------------pre_order--------------\n");
+    pre_order(root);
+    printf("\n--------------pre_order_loop--------------\n");
+    pre_order_loop(root);
 
-//     printf("\n\n--------------mid_order--------------\n");
-//     mid_order(root);
-//     printf("\n--------------mid_order_loop--------------\n");
-//     mid_order_loop(root);
+    printf("\n\n--------------mid_order--------------\n");
+    mid_order(root);
+    printf("\n--------------mid_order_loop--------------\n");
+    mid_order_loop(root);
 
-//     printf("\n\n--------------last_order--------------\n");
-//     last_order(root);
-//     printf("\n--------------last_order_loop--------------\n");
-//     last_order_loop(root);
+    printf("\n\n--------------last_order--------------\n");
+    last_order(root);
+    printf("\n--------------last_order_loop--------------\n");
+    last_order_loop(root);
 
-//     printf("\n\n--------------level_order--------------\n");
-//     level_order(root);
+    printf("\n\n--------------level_order--------------\n");
+    level_order(root);
 
-//     printf("\n");
-//     // release
-//     destroy(root);
-//     return 0;
-// }
+    printf("\n");
+    // release
+    destroy(root);
+    return 0;
+}

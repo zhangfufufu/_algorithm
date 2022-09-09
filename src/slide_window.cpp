@@ -107,11 +107,11 @@ string minWindow(string s, string t)
     return len == INT_MAX ? "" : s.substr(start, len);
 }
 
-// int main(int argc, char const *argv[])
-// {
-//     string s("ADOBECODEBANC");
-//     string t("ABC");
-//     cout << minWindow(s, t) << endl;
+int main(int argc, char const *argv[])
+{
+    string s("ADOBECODEBANC");
+    string t("ABC");
+    cout << minWindow(s, t) << endl;
 
-//     return 0;
-// }
+    return 0;
+}

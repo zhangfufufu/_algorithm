@@ -20,8 +20,6 @@
 #include <iostream>
 #include <vector>
 
-#include "../include/comm.h"
-
 using namespace std;
 
 // 堆的上浮调整
@@ -84,18 +82,17 @@ void creat_heap(vector<int> &arr)
     }
 }
 
-// int main(int argc, char const *argv[])
-// {
-//     vector<int> arr = {4, 3, 2, 7, 5, 6};
-//     creat_heap(arr);
+int main(int argc, char const *argv[])
+{
+    vector<int> arr = {4, 3, 2, 7, 5, 6};
+    creat_heap(arr);
 
-//     for_each(arr.begin(), arr.end(), [](int val) { cout << val << ' '; });
-//     cout << endl;
+    for_each(arr.begin(), arr.end(), [](int val) { cout << val << ' '; });
+    cout << endl;
 
-//     heap_up(arr);
-//     for_each(arr.begin(), arr.end(), [](int val) { cout << val << ' '; });
-//     Tool::for_each(arr);
-//     cout << endl;
+    heap_up(arr);
+    for_each(arr.begin(), arr.end(), [](int val) { cout << val << ' '; });
+    cout << endl;
 
-//     return 0;
-// }
+    return 0;
+}
