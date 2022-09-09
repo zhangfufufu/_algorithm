@@ -8,8 +8,7 @@
 #include <stack>
 
 // 二叉树结构
-typedef struct binary_tree
-{
+typedef struct binary_tree {
     int data;                   // 数据域
     struct binary_tree *left;   // 左节点指针
     struct binary_tree *right;  // 右节点指针

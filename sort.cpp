@@ -115,7 +115,7 @@ int _partition_swap(vector<int> &arr, int start_index, int end_index)
         }
     }
 
-    // 基准数和指针重合点进行交换 此时left=right
+    // 基准数和指针重合点进行交换 此时left=right 交换基准数和指针重合点
     swap(arr[left], pivot);
     // cout << "left=" << left << "right=" << right << endl;
     return left;

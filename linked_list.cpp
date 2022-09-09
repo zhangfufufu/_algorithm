@@ -5,8 +5,7 @@
 #include <stdlib.h>
 
 // 定义链表结构
-typedef struct link_list
-{
+typedef struct link_list {
     int data;                // 数据域
     struct link_list *next;  // 指针域 指向下一个节点
 
