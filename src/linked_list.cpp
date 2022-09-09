@@ -177,34 +177,34 @@ int get_size(Node *head)
 
 // 反转
 
-int main(int argc, char const *argv[])
-{
-    Node *head = creat_head_node();
+// int main(int argc, char const *argv[])
+// {
+//     Node *head = creat_head_node();
 
-    // 头插法插入数据
-    push_front_node(head, 5);
-    push_front_node(head, 3);
-    push_front_node(head, 7);
-    // 尾插法插入数据
-    push_back_node(head, 4);
-    push_back_node(head, 8);
-    push_back_node(head, 1);
+//     // 头插法插入数据
+//     push_front_node(head, 5);
+//     push_front_node(head, 3);
+//     push_front_node(head, 7);
+//     // 尾插法插入数据
+//     push_back_node(head, 4);
+//     push_back_node(head, 8);
+//     push_back_node(head, 1);
 
-    // 头删法删除数据
-    // front_pop_node(head);
-    // front_pop_node(head);
+//     // 头删法删除数据
+//     // front_pop_node(head);
+//     // front_pop_node(head);
 
-    // 尾删 删除数据
-    back_pop_node(head);
-    back_pop_node(head);
+//     // 尾删 删除数据
+//     back_pop_node(head);
+//     back_pop_node(head);
 
-    // 遍历
-    traverse_node(head);
+//     // 遍历
+//     traverse_node(head);
 
-    printf("linked_list size is %d\n", get_size(head));
+//     printf("linked_list size is %d\n", get_size(head));
 
-    // clear_node(head);
-    // traverse_node(head);
+//     // clear_node(head);
+//     // traverse_node(head);
 
-    return 0;
-}
+//     return 0;
+// }

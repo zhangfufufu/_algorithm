@@ -49,10 +49,3 @@ void permute(vector<int> &arr)
     cout << endl;
 }
 
-int main(int argc, char const *argv[])
-{
-    vector<int> arr{1, 2, 3, 4};
-    permute(arr);
-
-    return 0;
-}

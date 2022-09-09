@@ -94,12 +94,3 @@ int binary_search_right(vector<int> &arr, int target)
 
     return right;
 }
-
-int main(int argc, char const *argv[])
-{
-    vector<int> arr{1, 2, 2, 2, 6, 6, 8, 9, 9, 9};
-    // cout << binary_search_left(arr, 0) << endl;
-    cout << binary_search_right(arr, 0) << endl;
-
-    return 0;
-}

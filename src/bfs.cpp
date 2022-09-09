@@ -82,8 +82,3 @@ int minDepth(TreeNode *root)
     }
     return depth;
 }
-
-int main(int argc, char const *argv[])
-{
-    return 0;
-}

@@ -4,39 +4,9 @@
 #include <iostream>
 #include <vector>
 
+#include "../include/comm.h"
+
 using namespace std;
-
-namespace Tool {
-
-void for_each(vector<int> &arr)
-{
-    for (const int &val : arr) {
-        cout << val << ' ';
-    }
-    cout << endl;
-}
-
-void random(vector<int> &arr, int n = 10)
-{
-    /*
-    要取得 [a,b) 的随机整数，使用 (rand() % (b-a))+ a;
-    要取得 [a,b] 的随机整数，使用 (rand() % (b-a+1))+ a;
-    要取得 (a,b] 的随机整数，使用 (rand() % (b-a))+ a + 1;
-    */
-    srand((unsigned)time(NULL));
-    for (int i = 0; i < n; i++) {
-        arr.push_back(rand() % 50);
-    }
-}
-
-//获取从[start-end)之间的随机index
-int getrandom(int start, int end)
-{
-    srand((unsigned int)time(NULL));
-    return (rand() % (end - start)) + start;
-}
-
-}  // namespace Tool
 
 // 实现元素的移动，让数列中的元素依据自身大小，分别移动到基准元素的左右两边。移动方式是挖坑法。
 int _partition_move(vector<int> &arr, int start_index, int end_index)
@@ -398,8 +368,8 @@ int main(int argc, char const *argv[])
 
     // test
 
-    quick_sort_swap(arr, 0, arr.size() - 1);
-    // select_sort_plus(arr);
+    // quick_sort_swap(arr, 0, arr.size() - 1);
+    select_sort_plus(arr);
     // bubble_sort_plus(arr);
     // shell_sort(arr);
 
