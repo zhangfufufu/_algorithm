@@ -97,7 +97,13 @@ void _count_sort_plus(vector<int> &arr)
         count_arr[arr[i] - min_num]--;
     }
     // 交换结果数组和原数组值
-    arr.swap(tmp);
+    // arr.swap(tmp);
+
+    // 拷贝到arr
+    // copy(tmp.begin(), tmp.end(), arr.begin());
+
+    // 将tmp数据直接给原数组
+    arr = tmp;
 }
 
 int main(int argc, char const *argv[])
