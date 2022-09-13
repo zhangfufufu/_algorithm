@@ -8,16 +8,14 @@ using namespace std;
 
 namespace Tool {
 
-void for_each(vector<int> &arr)
-{
+void for_each(vector<int> &arr) {
     for (const int &val : arr) {
         cout << val << ' ';
     }
     cout << endl;
 }
 
-void random(vector<int> &arr, int count = 10)
-{
+void random(vector<int> &arr, int count = 10) {
     /*
     要取得 [a,b) 的随机整数，使用 (rand() % (b-a))+ a;
     要取得 [a,b] 的随机整数，使用 (rand() % (b-a+1))+ a;
@@ -29,8 +27,7 @@ void random(vector<int> &arr, int count = 10)
     }
 }
 
-int getrandom(int start, int end)
-{
+int getrandom(int start, int end) {
     srand((unsigned int)time(NULL));
     int num = (rand() % (end - start)) + start;
     return num;
@@ -39,8 +36,7 @@ int getrandom(int start, int end)
 }  // namespace Tool
 
 // 实现元素的移动，让数列中的元素依据自身大小，分别移动到基准元素的左右两边。移动方式是挖坑法。
-int _partition_move(vector<int> &arr, int start_index, int end_index)
-{
+int _partition_move(vector<int> &arr, int start_index, int end_index) {
     // 初始基准元素为数组第一位元素
     int pivot = arr[start_index];
     // 定义坑的位置 初始等于基准元素的位置
@@ -87,8 +83,7 @@ int _partition_move(vector<int> &arr, int start_index, int end_index)
 }
 
 // 实现元素的移动，让数列中的元素依据自身大小，分别移动到基准元素的左右两边。移动方式是指针交换法。
-int _partition_swap(vector<int> &arr, int start_index, int end_index)
-{
+int _partition_swap(vector<int> &arr, int start_index, int end_index) {
     // 基准数
     int pivot = arr[start_index];
 
@@ -122,8 +117,7 @@ int _partition_swap(vector<int> &arr, int start_index, int end_index)
 }
 
 // 冒泡排序 基础版
-void bubble_sort(vector<int> &arr)
-{
+void bubble_sort(vector<int> &arr) {
     int len = arr.size();
     for (int i = 0; i < len - 1; i++) {
         for (int j = 0; j < len - i - 1; j++) {
@@ -135,8 +129,7 @@ void bubble_sort(vector<int> &arr)
 }
 
 // 冒泡排序 优化
-void bubble_sort_plus(vector<int> &arr)
-{
+void bubble_sort_plus(vector<int> &arr) {
     int len = arr.size();
     // 记录最后一次交换的索引
     int last_change_index = 0;
@@ -166,8 +159,7 @@ void bubble_sort_plus(vector<int> &arr)
 }
 
 // 选择排序 每一轮选出最小着,交换到左侧
-void select_sort(vector<int> &arr)
-{
+void select_sort(vector<int> &arr) {
     int len = arr.size();
     for (int i = 0; i < len; i++) {
         // 一轮循环选出最小值
@@ -205,8 +197,7 @@ nums[n-i-1]是最小值呢？如果先交换的是最小值，在交换 nums[i] 
 处就不再是最小值，就会影响最小值的交换。所以先进行交换的要处理这个特殊情况。
 
 */
-void select_sort_plus(vector<int> &arr)
-{
+void select_sort_plus(vector<int> &arr) {
     int len = arr.size();
 
     // 只需要进行N/2次排序
@@ -246,8 +237,7 @@ void select_sort_plus(vector<int> &arr)
 }
 
 // 插入排序 交换法 思想:维护一个有序区,将元素一个一个插入到有序区
-void insert_sort_swap(vector<int> &arr)
-{
+void insert_sort_swap(vector<int> &arr) {
     int len = arr.size();
     for (int i = 1; i < len; i++) {
         for (int j = i - 1; j >= 0; j--) {
@@ -264,8 +254,7 @@ void insert_sort_swap(vector<int> &arr)
 }
 
 // 插入排序 挖坑法 优化版
-void insert_sort_move(vector<int> &arr)
-{
+void insert_sort_move(vector<int> &arr) {
     int len = arr.size();
     for (int i = 1; i < len; i++) {
         // 挖坑
@@ -281,8 +270,7 @@ void insert_sort_move(vector<int> &arr)
 }
 
 // 希尔排序 直接插入排序的升级版
-void shell_sort(vector<int> &arr)
-{
+void shell_sort(vector<int> &arr) {
     int d = arr.size();
     while (d > 1) {
         // 使用希尔增量方式 每次除半
@@ -306,8 +294,7 @@ void shell_sort(vector<int> &arr)
 // 快速排序 挖坑法
 // 快速排序在每一轮挑选一个基准元素，并让其他比它大的元素移动到数列一边，比它小的元素移动到数列的
 //  另一边，从而把数列拆解成了两个部分。分治法
-void quick_sort_move(vector<int> &arr, int start_index, int end_index)
-{
+void quick_sort_move(vector<int> &arr, int start_index, int end_index) {
     // 递归的出口
     if (start_index >= end_index) {
         return;
@@ -322,8 +309,7 @@ void quick_sort_move(vector<int> &arr, int start_index, int end_index)
 }
 
 // 快速排序指针交换法 效率比挖坑法高
-void quick_sort_swap(vector<int> &arr, int start_index, int end_index)
-{
+void quick_sort_swap(vector<int> &arr, int start_index, int end_index) {
     if (start_index >= end_index) {
         return;
     }
@@ -340,8 +326,7 @@ void quick_sort_swap(vector<int> &arr, int start_index, int end_index)
 }
 
 // 合并两个有序数组到大数组中
-void _merge(vector<int> &arr, int start_index, int mid_index, int end_index)
-{
+void _merge(vector<int> &arr, int start_index, int mid_index, int end_index) {
     // 获取两个子序列的第一个下标
     int i = start_index;
     int j = mid_index + 1;
@@ -376,8 +361,7 @@ void _merge(vector<int> &arr, int start_index, int mid_index, int end_index)
 }
 
 // 归并排序
-void merge_sort(vector<int> &arr, int start_index, int end_index)
-{
+void merge_sort(vector<int> &arr, int start_index, int end_index) {
     if (start_index >= end_index) {
         return;
     }
@@ -391,8 +375,7 @@ void merge_sort(vector<int> &arr, int start_index, int end_index)
     _merge(arr, start_index, mid_index, end_index);
 }
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const *argv[]) {
     vector<int> arr;
     Tool::random(arr);
 

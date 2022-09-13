@@ -4,8 +4,7 @@
 using namespace std;
 
 // 查找目标数
-int binary_search(vector<int> &arr, int target)
-{
+int binary_search(vector<int> &arr, int target) {
     if (arr.empty()) {
         return -1;
     }
@@ -33,8 +32,7 @@ int binary_search(vector<int> &arr, int target)
 }
 
 // 查找左边界 返回left 需要判断left是否>=数组长度
-int binary_search_left(vector<int> &arr, int target)
-{
+int binary_search_left(vector<int> &arr, int target) {
     if (arr.empty()) {
         return -1;
     }
@@ -63,8 +61,7 @@ int binary_search_left(vector<int> &arr, int target)
 }
 
 // 查找右边界 返回right 需要判断right是否<0
-int binary_search_right(vector<int> &arr, int target)
-{
+int binary_search_right(vector<int> &arr, int target) {
     if (arr.empty()) {
         return -1;
     }

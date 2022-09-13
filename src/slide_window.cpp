@@ -8,8 +8,7 @@
 using namespace std;
 
 // 滑动窗口算法框架
-void __slide_window(string s, string t)
-{
+void __slide_window(string s, string t) {
     unordered_map<char, int> need, window;
     for (char c : t) {
         need[c]++;
@@ -53,8 +52,7 @@ void __slide_window(string s, string t)
     输入：s = "ADOBECODEBANC", t = "ABC"
     输出："BANC"
 */
-string minWindow(string s, string t)
-{
+string minWindow(string s, string t) {
     unordered_map<char, int> need, window;
 
     // 初始化need窗口
@@ -107,8 +105,7 @@ string minWindow(string s, string t)
     return len == INT_MAX ? "" : s.substr(start, len);
 }
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const *argv[]) {
     string s("ADOBECODEBANC");
     string t("ABC");
     cout << minWindow(s, t) << endl;

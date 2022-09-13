@@ -6,8 +6,7 @@
 #include <vector>
 using namespace std;
 
-void _random(vector<int> &arr, int count = 10)
-{
+void _random(vector<int> &arr, int count = 10) {
     srand((unsigned int)time(NULL));
     for (int i = 0; i < count; i++) {
         arr.push_back(rand() % 10);
@@ -15,8 +14,7 @@ void _random(vector<int> &arr, int count = 10)
 }
 
 // 计数排序
-void _count_sort(vector<int> &arr)
-{
+void _count_sort(vector<int> &arr) {
     // 求出arr最大值 确定统计数组长度
     vector<int>::iterator max_ = max_element(arr.begin(), arr.end());
     vector<int> count_arr(*max_ + 1);
@@ -41,8 +39,7 @@ void _count_sort(vector<int> &arr)
     问题:只以数组最大值确定统计数组的长度不严谨,容易造成空间浪费 比如 [67,55,88,99,77] 前面0-55空间被浪费
     优化点: 以数组最大值和最小值得差值确定统计数组的长度
 */
-void _count_sort_maxs(vector<int> &arr)
-{
+void _count_sort_maxs(vector<int> &arr) {
     int max_num = *max_element(arr.begin(), arr.end());
     int min_num = *min_element(arr.begin(), arr.end());
     // 差值
@@ -65,8 +62,7 @@ void _count_sort_maxs(vector<int> &arr)
 
 // 计数排序优化为稳定排序  填充玩统计数组后 需要对统计数组做变形
 // 统计数组从第二个元素开始，每一个元素都加上前面所有元素之和。
-void _count_sort_plus(vector<int> &arr)
-{
+void _count_sort_plus(vector<int> &arr) {
     //获取最大值和最小值 求出差值
     int max_num = *max_element(arr.begin(), arr.end());
     int min_num = *min_element(arr.begin(), arr.end());
@@ -106,8 +102,7 @@ void _count_sort_plus(vector<int> &arr)
     arr = tmp;
 }
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const *argv[]) {
     vector<int> arr;
     _random(arr);
     // 测试

@@ -17,8 +17,7 @@ struct TreeNode {
 };
 
 // 求二叉树的最大深度 BFS
-int maxDepth(TreeNode *root)
-{
+int maxDepth(TreeNode *root) {
     if (root == nullptr) {
         return 0;
     }
@@ -48,8 +47,7 @@ int maxDepth(TreeNode *root)
 }
 
 // 求二叉树的最小高度
-int minDepth(TreeNode *root)
-{
+int minDepth(TreeNode *root) {
     if (root == nullptr) {
         return 0;
     }

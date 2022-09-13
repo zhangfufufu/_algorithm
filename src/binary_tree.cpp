@@ -24,8 +24,7 @@ typedef struct binary_tree {
 */
 
 //指向指针变量的指针，结果是指针tree所指向的值
-void insert(Node **tree, int num)
-{
+void insert(Node **tree, int num) {
     Node *temp = nullptr;
     // 判断是否有根节点
     if (!(*tree)) {
@@ -51,8 +50,7 @@ void insert(Node **tree, int num)
 }
 
 // 前序遍历
-void pre_order(Node *root)
-{
+void pre_order(Node *root) {
     // root 左 右
     if (!root) {
         return;
@@ -66,8 +64,7 @@ void pre_order(Node *root)
 }
 
 // 前序遍历 循环
-void pre_order_loop(Node *root)
-{
+void pre_order_loop(Node *root) {
     if (root == nullptr) {
         return;
     }
@@ -90,8 +87,7 @@ void pre_order_loop(Node *root)
 }
 
 // 中序遍历
-void mid_order(Node *root)
-{
+void mid_order(Node *root) {
     // 左 root 右
     if (root == nullptr) {
         return;
@@ -105,8 +101,7 @@ void mid_order(Node *root)
 }
 
 // 中序遍历 循环
-void mid_order_loop(Node *root)
-{
+void mid_order_loop(Node *root) {
     if (root == nullptr) {
         return;
     }
@@ -135,8 +130,7 @@ void mid_order_loop(Node *root)
 }
 
 // 后序遍历
-void last_order(Node *root)
-{
+void last_order(Node *root) {
     if (!root) {
         return;
     }
@@ -147,8 +141,7 @@ void last_order(Node *root)
 }
 
 // 后序遍历 循环
-void last_order_loop(Node *root)
-{
+void last_order_loop(Node *root) {
     if (root == nullptr) {
         return;
     }
@@ -187,8 +180,7 @@ void last_order_loop(Node *root)
 }
 
 // 二叉树的层序遍历
-void level_order(Node *root)
-{
+void level_order(Node *root) {
     if (root == nullptr) {
         return;
     }
@@ -218,8 +210,7 @@ void level_order(Node *root)
 }
 
 // 释放二叉树
-void destroy(Node *root)
-{
+void destroy(Node *root) {
     if (!root) {
         return;
     }
@@ -229,8 +220,7 @@ void destroy(Node *root)
     free(root);
 }
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const *argv[]) {
     Node *root;
     root = nullptr;
     insert(&root, 5);

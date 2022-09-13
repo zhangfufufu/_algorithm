@@ -26,8 +26,7 @@
 
 using namespace std;
 
-void _random(vector<int> &arr, int n = 10)
-{
+void _random(vector<int> &arr, int n = 10) {
     srand((unsigned int)time(NULL));
     for (int i = 0; i < n; i++) {
         arr.push_back(rand() % 20);
@@ -35,8 +34,7 @@ void _random(vector<int> &arr, int n = 10)
 }
 
 // 堆的上浮调整 堆的插入需要上浮调整以维护堆的结构
-void adjust_up(vector<int> &arr, int child_index)
-{
+void adjust_up(vector<int> &arr, int child_index) {
     int parent_index = (child_index - 1) / 2;
 
     // 保存要调整的child节点
@@ -58,8 +56,7 @@ void adjust_up(vector<int> &arr, int child_index)
 }
 
 // 堆的下沉调整。堆的删除需要上浮调整以维护堆的结构
-void adjust_down(vector<int> &arr, int parent_index, int len)
-{
+void adjust_down(vector<int> &arr, int parent_index, int len) {
     // 保存父节点
     int temp = arr[parent_index];
 
@@ -88,8 +85,7 @@ void adjust_down(vector<int> &arr, int parent_index, int len)
 }
 
 // 堆的创建
-void _creat_heap(vector<int> &arr)
-{
+void _creat_heap(vector<int> &arr) {
     // 方法1: 向上调整建立堆法
     for (int i = 0; i < arr.size(); i++) {
         adjust_up(arr, i);
@@ -103,8 +99,7 @@ void _creat_heap(vector<int> &arr)
 }
 
 // 堆的插入 只能在堆的末尾进行操作，否则会破坏堆的整个结构。
-void _push_heap(vector<int> &arr, int val)
-{
+void _push_heap(vector<int> &arr, int val) {
     // 加入到末尾
     arr.push_back(val);
     // 末尾数上浮调整堆的结构
@@ -112,8 +107,7 @@ void _push_heap(vector<int> &arr, int val)
 }
 
 // 堆的删除 堆的删除要求在原有堆的基础上，删掉第一个元素，通过调整，形成新的堆
-void _pop_heap(vector<int> &arr)
-{
+void _pop_heap(vector<int> &arr) {
     // 交换首节点和尾结点的值
     swap(arr.at(0), arr.at(arr.size() - 1));
     // 删除最后一个节点
@@ -123,8 +117,7 @@ void _pop_heap(vector<int> &arr)
 }
 
 // 堆排序
-void _heap_sort(vector<int> &arr, int len)
-{
+void _heap_sort(vector<int> &arr, int len) {
     // 构造大顶堆
     // 一定要从后往前调整 初始为最后一个非叶节点,即至少有一个左孩子
     for (int i = (len - 1 - 1) / 2; i >= 0; i--) {
@@ -139,8 +132,7 @@ void _heap_sort(vector<int> &arr, int len)
     }
 }
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const *argv[]) {
     // 二叉堆数据结构
     vector<int> arr{4, 2, 3, 7, 5, 4};
     // _random(arr);

@@ -12,8 +12,7 @@ typedef struct link_list {
 } Node;
 
 // 创建头结点
-Node *creat_head_node()
-{
+Node *creat_head_node() {
     Node *head = (Node *)malloc(sizeof(Node));
     head->next = NULL;
 
@@ -21,8 +20,7 @@ Node *creat_head_node()
 }
 
 // 创建节点
-Node *_creat_node(int x)
-{
+Node *_creat_node(int x) {
     Node *newNode = (Node *)malloc(sizeof(Node));
     newNode->data = x;
     newNode->next = NULL;
@@ -31,8 +29,7 @@ Node *_creat_node(int x)
 }
 
 // 头插节点
-void push_front_node(Node *head, int num)
-{
+void push_front_node(Node *head, int num) {
     assert(head);
 
     Node *newNode = _creat_node(num);
@@ -48,8 +45,7 @@ void push_front_node(Node *head, int num)
 }
 
 // 尾插节点
-void push_back_node(Node *head, int num)
-{
+void push_back_node(Node *head, int num) {
     assert(head);
     // 首先遍历到链表的尾部
     Node *cur = head;
@@ -63,8 +59,7 @@ void push_back_node(Node *head, int num)
 }
 
 // 头删节点
-void front_pop_node(Node *head)
-{
+void front_pop_node(Node *head) {
     if (head == NULL || head->next == NULL) {
         // 没有可以删除的节点
         printf("没有可以删除的节点...\n");
@@ -76,8 +71,7 @@ void front_pop_node(Node *head)
     free(tmp);  // 一定要最后再释放
 }
 // 尾删节点
-void back_pop_node(Node *head)
-{
+void back_pop_node(Node *head) {
     if (head == NULL || head->next == NULL) {
         // 没有可以删除的节点
         printf("没有可以删除的节点...\n");
@@ -105,8 +99,7 @@ void back_pop_node(Node *head)
 }
 
 // 遍历链表
-void traverse_node(Node *Head)
-{
+void traverse_node(Node *Head) {
     if (Head == NULL) {
         return;
     }
@@ -119,8 +112,7 @@ void traverse_node(Node *Head)
 }
 
 // 清空单链表 不销毁头节点
-void clear_node(Node *Head)
-{
+void clear_node(Node *Head) {
     Node *cur = Head;
     Node *next = NULL;
 
@@ -133,8 +125,7 @@ void clear_node(Node *Head)
 }
 
 // 销毁单链表 包括头节点 要改变头指针的值 所以需要传入二级指针
-void destroy_node(Node **Head)
-{
+void destroy_node(Node **Head) {
     clear_node(*Head);
     // 销毁头指针
     free(*Head);
@@ -142,8 +133,7 @@ void destroy_node(Node **Head)
 }
 
 // 查找值为x的节点并返回节点的指针
-Node *find_node(Node *head, int x)
-{
+Node *find_node(Node *head, int x) {
     if (head == NULL || head->next == NULL) {
         return NULL;
     }
@@ -158,8 +148,7 @@ Node *find_node(Node *head, int x)
 }
 
 // 链表的长度
-int get_size(Node *head)
-{
+int get_size(Node *head) {
     if (head == NULL || head->next == NULL) {
         return 0;
     }
@@ -177,8 +166,7 @@ int get_size(Node *head)
 
 // 反转
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const *argv[]) {
     Node *head = creat_head_node();
 
     // 头插法插入数据

@@ -5,8 +5,7 @@
 using namespace std;
 
 // 回溯算法 核心代码
-void backtrack(vector<vector<int>> &res, vector<int> &arr, vector<int> &track)
-{
+void backtrack(vector<vector<int>> &res, vector<int> &arr, vector<int> &track) {
     // 递归的出口
     if (track.size() == arr.size()) {
         res.push_back(vector<int>(track));
@@ -30,8 +29,7 @@ void backtrack(vector<vector<int>> &res, vector<int> &arr, vector<int> &track)
 }
 
 // 全排列
-void permute(vector<int> &arr)
-{
+void permute(vector<int> &arr) {
     // 记录全排列的结果
     vector<vector<int>> res;
     // 记录路径
@@ -48,4 +46,3 @@ void permute(vector<int> &arr)
     }
     cout << endl;
 }
-
