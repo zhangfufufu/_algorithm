@@ -52,11 +52,10 @@ int binary_search_left(vector<int> &arr, int target)
         }
     }
 
-    // 循环退出条件为 left = right + 1
     // cout << "left=" << left << endl;
     // cout << "right=" << right << endl;
 
-    // 当target大于所有数 left会右越界
+    // 因为返回的是left,而循环退出条件是left=right+1,所以需要判断left的右边界
     if (left >= arr.size() || arr[left] != target) {
         return -1;
     }
@@ -83,11 +82,10 @@ int binary_search_right(vector<int> &arr, int target)
             right = mid - 1;
         }
     }
-    // 循环退出条件为 left = right + 1
     // cout << "left=" << left << endl;
     // cout << "right=" << right << endl;
 
-    // 当target小于数组中所有数 right会左越界
+    // 因为返回的是right,而循环退出条件为right=left-1,所以需要判断right的左边界
     if (right < 0 || arr[right] != target) {
         return -1;
     }
