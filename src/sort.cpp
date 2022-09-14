@@ -259,8 +259,8 @@ void insert_sort_move(vector<int> &arr) {
     for (int i = 1; i < len; i++) {
         // 挖坑
         int tmp = arr[i];
-        int j;
-        for (j = i - 1; j >= 0 && arr[j] > tmp; j--) {
+        int j = i - 1;
+        for (; j >= 0 && arr[j] > tmp; j--) {
             // 小数前置移位
             arr[j + 1] = arr[j];
         }
@@ -271,22 +271,18 @@ void insert_sort_move(vector<int> &arr) {
 
 // 希尔排序 直接插入排序的升级版
 void shell_sort(vector<int> &arr) {
-    int d = arr.size();
-    while (d > 1) {
+    for (size_t d = arr.size() / 2; d > 0; d /= 2) {
         // 使用希尔增量方式 每次除半
-        d /= 2;
-        for (int x = 0; x < d; x++) {
-            for (int i = x + d; i < arr.size(); i += d) {
-                // 挖坑
-                int tmp = arr[i];
-                int j;
-                for (j = i - d; j >= 0 && arr[j] > tmp; j -= d) {
-                    // 移位
-                    arr[j + d] = arr[j];
-                }
-                // 填坑
-                arr[j + d] = tmp;
+        for (int i = d; i < arr.size(); i += d) {
+            // 挖坑
+            int tmp = arr[i];
+            int j = i - d;
+            for (; j >= 0 && arr[j] > tmp; j -= d) {
+                // 移位
+                arr[j + d] = arr[j];
             }
+            // 填坑
+            arr[j + d] = tmp;
         }
     }
 }
@@ -382,9 +378,9 @@ int main(int argc, char const *argv[]) {
     // test
 
     // quick_sort_swap(arr, 0, arr.size() - 1);
-    select_sort_plus(arr);
+    // select_sort_plus(arr);
     // bubble_sort_plus(arr);
-    // shell_sort(arr);
+    shell_sort(arr);
 
     // merge_sort(arr, 0, arr.size() - 1);
     Tool::for_each(arr);
