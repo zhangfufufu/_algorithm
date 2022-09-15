@@ -5,6 +5,10 @@
 std::mutex mtx;
 
 // 高效版 线程安全 懒汉式
+// 实例在第一次被使用时才进行初始化，这叫做延迟初始化。
+// 解决内存泄漏方式:
+// 1.使用智能指针
+// 2.使用静态的嵌套类对象
 class Singleton {
 public:
     ~Singleton();
@@ -42,8 +46,7 @@ private:
     };
 };
 
-// 类的静态变量需要类外初始化
-Singleton *Singleton::_instance = nullptr;
+Singleton *Singleton::_instance = nullptr;  // 懒汉式 类外nullptr,类内实例化
 
 Singleton::Singleton() {
     std::cout << "Singleton Constructor" << std::endl;
