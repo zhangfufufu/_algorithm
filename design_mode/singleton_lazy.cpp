@@ -1,7 +1,10 @@
 #include <iostream>
+#include <mutex>
+#include <thread>
 
-// c++11 之后 线程安全
-// 使用类的私有静态指针变量指向类的唯一实例，并用一个公有的静态方法获取该实例。
+std::mutex mtx;
+
+// 高效版 线程安全 懒汉式
 class Singleton {
 public:
     ~Singleton();
@@ -10,15 +13,33 @@ public:
     Singleton &operator=(const Singleton &) = delete;  // 禁用赋值运算符
 
     static Singleton *get_instance() {
+        // if(_instance == nullptr)并不是原子操作,多线程会存在线程安全问题 需要加锁
         if (_instance == nullptr) {
-            _instance = new Singleton;
+            // lock_guard类通过在对象构造的时候对mutux进行加锁，当对象离开作用域时自动解锁
+            std::lock_guard<std::mutex> lck(mtx);
+            if (_instance == nullptr) {
+                _instance = new Singleton;
+            }
         }
-        return _instance;
+        return _instance;  // 非空new一个对象,保证只有一个对象
     }
 
 private:
     Singleton();                  // 构造私有
     static Singleton *_instance;  // 静态成员私有
+
+private:
+    class Del {  // 内部类 负责释放单例对象 解决_instance内存泄漏问题
+    public:
+        ~Del() {
+            if (Singleton::_instance != nullptr) {
+                delete Singleton::_instance;
+                Singleton::_instance = nullptr;
+            }
+        }
+
+        static Del d;  // 静态变量会在程序结束时候自动调用它的析构函数
+    };
 };
 
 // 类的静态变量需要类外初始化
