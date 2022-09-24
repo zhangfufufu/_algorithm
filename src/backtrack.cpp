@@ -29,7 +29,7 @@ void backtrack(vector<vector<int>> &res, vector<int> &arr, vector<int> &track) {
 }
 
 // 全排列
-void permute(vector<int> &arr) {
+vector<vector<int>> permute(vector<int> &arr) {
     // 记录全排列的结果
     vector<vector<int>> res;
     // 记录路径
@@ -37,12 +37,22 @@ void permute(vector<int> &arr) {
 
     backtrack(res, arr, track);
 
+    return res;
+}
+
+void output(vector<vector<int>> &arr) {
     // 输出
-    for (auto &vals : res) {
+    for (auto &vals : arr) {
         for (auto &val : vals) {
             cout << val << ' ';
         }
         cout << endl;
     }
     cout << endl;
+}
+int main(int argc, char const *argv[]) {
+    vector<int> arr = {1, 2, 3};
+    vector<vector<int>> res = permute(arr);
+    output(res);
+    return 0;
 }
