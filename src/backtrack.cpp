@@ -4,8 +4,8 @@
 
 using namespace std;
 
-// 回溯算法 核心代码
-void backtrack(vector<vector<int>> &res, vector<int> &arr, vector<int> &track) {
+// 回溯算法 全排列问题
+void backtrack(vector<vector<int>> &res, vector<int> &arr, vector<int> &track, vector<bool> &used) {
     // 递归的出口
     if (track.size() == arr.size()) {
         res.push_back(vector<int>(track));
@@ -13,29 +13,40 @@ void backtrack(vector<vector<int>> &res, vector<int> &arr, vector<int> &track) {
     }
 
     // for 选择 in 选择列表
-    for (int i = 0; i < arr.size(); i++) {
-        // 排除重复选项
-        if (count(track.begin(), track.end(), arr[i])) {
+    for (int i = 0, last = -1; i < arr.size(); i++) {
+        // 路径走过，直接跳过
+        if (used[i]) {
             continue;
         }
-
+        // 上次的选择和本次一样，直接跳过 防止重复
+        if (last != -1 && arr[i] == arr[last]) {
+            continue;
+        }
+        last = i;
         // 进行选择
         track.push_back(arr[i]);
+        used[i] = true;
         // 进入下一层决策树
-        backtrack(res, arr, track);
+        backtrack(res, arr, track, used);
         // 撤销选择
         track.pop_back();
+        used[i] = false;
     }
 }
 
-// 全排列
+// 全排列 可包含重复数字
 vector<vector<int>> permute(vector<int> &arr) {
     // 记录全排列的结果
     vector<vector<int>> res;
     // 记录路径
     vector<int> track;
+    // 记录路径是否已经走过
+    vector<bool> used(arr.size(), false);
 
-    backtrack(res, arr, track);
+    // 需要先排序将相同元素放在一起好过滤
+    sort(arr.begin(), arr.end());
+
+    backtrack(res, arr, track, used);
 
     return res;
 }
@@ -50,8 +61,9 @@ void output(vector<vector<int>> &arr) {
     }
     cout << endl;
 }
+
 int main(int argc, char const *argv[]) {
-    vector<int> arr = {1, 2, 3};
+    vector<int> arr = {1, 3, 1, 4};
     vector<vector<int>> res = permute(arr);
     output(res);
     return 0;
